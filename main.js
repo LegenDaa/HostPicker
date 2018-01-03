@@ -13,8 +13,25 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
-
+  mainWindow = new BrowserWindow({
+    width: 1400, 
+    height: 600, 
+    minWidth:800,
+    minHeight:600,
+    autoHideMenuBar:true, //隐藏菜单栏
+    fullscreen:false, //全屏
+    skipTaskbar:false, //不显示在任务栏
+    title:"HostPicker", //标题
+    titleBarStyle:"hidden",//隐藏标题栏
+    webPreferences:{ //web窗口工具
+      devTools:true
+    },
+    backgroundColor:"#fff alpha(opacity=0)",
+    useContentSize:true,
+    frame:false//去掉系统边框
+  })
+  // 开启调试窗口
+  mainWindow.webContents.openDevTools ()
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
