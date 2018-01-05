@@ -32,6 +32,7 @@ function createWindow () {
   })
   // 开启调试窗口
   mainWindow.webContents.openDevTools ()
+  
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, './src/index.html'),
